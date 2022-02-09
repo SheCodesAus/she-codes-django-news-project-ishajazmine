@@ -19,7 +19,8 @@ class IndexView(generic.ListView):
         return context
 
 class StoryView(generic.DetailView):
-    model = NewsStorytemplate_name = 'news/story.html'
+    model = NewsStory
+    template_name = 'news/story.html'
     context_object_name = 'story'
 
 # form class

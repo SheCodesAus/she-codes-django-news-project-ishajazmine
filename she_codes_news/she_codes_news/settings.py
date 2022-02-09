@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users.apps.UsersConfig',
+    # below: adding profile app
+    # 'users.apps.Profile',
 ]
 
 MIDDLEWARE = [
@@ -125,10 +127,15 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
 os.path.join(BASE_DIR, 'static'),
 )
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media') 
+# # ^^Directory where uploaded media is saved.
+# MEDIA_URL = '/media/' 
+# #^^ Public URL at the browser
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'users.CustomUser'
+# AUTH_USER_MODEL = 'users.Profile'
 
 #users app login redirect
 LOGIN_REDIRECT_URL = 'news:index'
