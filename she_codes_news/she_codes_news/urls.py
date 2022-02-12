@@ -15,6 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+# below 090222
+# from users import views
+# from users.views import ProfileView
 
 urlpatterns = [
     path('news/', include('news.urls')),

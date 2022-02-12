@@ -134,9 +134,11 @@ os.path.join(BASE_DIR, 'static'),
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# AUTH_USER_MODEL = 'users.AuthUser'
 AUTH_USER_MODEL = 'users.CustomUser'
 # AUTH_USER_MODEL = 'users.Profile'
 
 #users app login redirect
 LOGIN_REDIRECT_URL = 'news:index'
 LOGOUT_REDIRECT_URL = 'news:index'
+LOGIN_URL = 'login'
