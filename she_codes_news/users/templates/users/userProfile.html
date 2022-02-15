@@ -1,20 +1,27 @@
 {% extends 'base.html' %}
 {% block content %}
-<h>2Welcome to the profile of {{customuser.username}} </h2>
+<h>Welcome to the profile of {{customuser.username}} </h2>
 <h3>Your Email: {{customuser.email}}</h3>
 
-<ul>
-    {% if latest_stories %}
-        {% for story in latest_stories %}
-            <li>{{ story.title }}</li>
-            {%include "./storyCard.html" with story=story position=forloop.counter %}
-        {% endfor %}
-    {% else %}
-        <p>No stories are available.</p>
-    {% endif %}
-</ul>
+<div>
+    <ul>
+    {% for story in customuser.newsstory_set.all %}
+        {% comment %} {% if story is not "" %}
+            <p>There are no stories to display.</p>
+            {% comment %} Doesnt print when  there are no stories {% endcomment %}
+        {% comment %} {% else %} {% endcomment %} 
+            <li><a href="{% url 'news:story' story.id %}">{{story.title}}</a></li>
+        {% comment %} {% endif %} {% endcomment %}
+    {% endfor %}
+    </ul>
+</div>
+
+<div>
+    <a href="{% url 'news:newStory' %}">Write a new Story</a>
+</div>
+
+
 
 {% endblock %}
 
-{% comment %} user stories {% endcomment %}
 

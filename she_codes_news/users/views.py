@@ -1,4 +1,5 @@
 from cProfile import Profile
+from multiprocessing import context
 from django.shortcuts import render
 
 # Create your views here.
@@ -32,10 +33,27 @@ class ProfileView(LoginRequiredMixin, DetailView):
     model = CustomUser
     template_name = 'users/userProfile.html'
 
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['user_stories'] = NewsStory.objects.filter(author=self.kwargs['pk'])
         return context
+
+
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     # context['user_stories'] = NewsStory.objects.filter(author=self.kwargs['pk'])
+    #     if NewsStory.objects.filter(author=self.kwargs['pk']) is not "":
+    #         context['user_stories'] = NewsStory.objects.filter(author=self.kwargs['pk'])
+    #     else:
+    #         context['user_stories'] = "no stories available"
+    #     return context
+
+    
+    
+    # def profile_index(request):
+    #     logged_in_user = request.Cus
+
 
 # ^requires user to log in before they can access user profile.
     
