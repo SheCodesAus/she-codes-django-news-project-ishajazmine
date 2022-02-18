@@ -22,6 +22,15 @@ class CreateAccountView(CreateView):
     form_class = CustomUserCreationForm
     success_url = reverse_lazy('login')
     template_name = 'users/createAccount.html'
+
+    # def saveImage(request):
+    #     if request.method == "POST":
+    #         image = request.FILES.get('image')
+    #         new_image = <Image_Model>.objects.create(image = image
+    #     )
+
+    #     return redirect('/somewhere/')
+    # return render(request, 'new_image.html',)
     
 
 # class EditAccountView():
@@ -32,27 +41,24 @@ class CreateAccountView(CreateView):
 class ProfileView(LoginRequiredMixin, DetailView):
     model = CustomUser
     template_name = 'users/userProfile.html'
+    context_object_name = 'user'
 
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        # context['all_stories'] = NewsStory.objects.filter(author=self.kwargs['pk'])
         context['user_stories'] = NewsStory.objects.filter(author=self.kwargs['pk'])
         return context
-
-
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     # context['user_stories'] = NewsStory.objects.filter(author=self.kwargs['pk'])
-    #     if NewsStory.objects.filter(author=self.kwargs['pk']) is not "":
-    #         context['user_stories'] = NewsStory.objects.filter(author=self.kwargs['pk'])
-    #     else:
-    #         context['user_stories'] = "no stories available"
-    #     return context
-
     
-    
-    # def profile_index(request):
-    #     logged_in_user = request.Cus
+
+# class UpdateProfileView(generic.UpdateView):
+#     model = CustomUser
+#     form_class = CustomUserCreationForm
+#     context_object_name = 'userForm'
+#     template_name = 'users/userUpdate.html'
+
+#     def get_object(self, queryset=None):
+#         return self.request.user
 
 
 # ^requires user to log in before they can access user profile.

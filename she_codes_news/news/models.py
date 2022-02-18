@@ -11,4 +11,6 @@ class NewsStory(models.Model):
     )
     pub_date = models.DateTimeField()
     content = models.TextField()
+    # image = models.UrlField(null=True, blank=True)
     # picture = models.UrlField(upload_to=settings.MEDIA_ROOT)
+

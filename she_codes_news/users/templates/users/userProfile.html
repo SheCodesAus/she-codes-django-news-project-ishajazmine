@@ -1,11 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
-<h>Welcome to the profile of {{customuser.username}} </h2>
-<h3>Your Email: {{customuser.email}}</h3>
+<h2>Welcome to the profile of {{user.username}} </h2>
+<h3>Your Email: {{user.email}}</h3>
 
 <div>
+    <p><strong>About Me:</strong>&nbsp{{user.about_me}}</p>
+</div>
+
+<div>
+    My Stories:
     <ul>
-    {% for story in customuser.newsstory_set.all %}
+    {% for story in user.newsstory_set.all %}
         {% comment %} {% if story is not "" %}
             <p>There are no stories to display.</p>
             {% comment %} Doesnt print when  there are no stories {% endcomment %}
@@ -15,6 +20,7 @@
     {% endfor %}
     </ul>
 </div>
+
 
 <div>
     <a href="{% url 'news:newStory' %}">Write a new Story</a>
