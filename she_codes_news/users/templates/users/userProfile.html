@@ -30,6 +30,7 @@
     {% for story in user.newsstory_set.all %}
         <p><a href="{% url 'news:story' story.id %}">{{story.title}}</a></p> 
         <a href="{%url 'news:editStory' story.id %}"> Edit </a> 
+        <a href="{%url 'news:deleteStory' story.id %}"> Delete </a> 
         {% comment %} {%include "news/storyCard.html" with story=story position=forloop.counter %} {% endcomment %}
     {% empty %}
         <p>No stories are available.</p>
