@@ -45,9 +45,7 @@ class EditStoryView(generic.UpdateView):
     
     def get_success_url(self):
         story_id = self.object.id
-        return reverse('news:story', kwargs={'pk: story_id'},
-        
-        )
+        return reverse('news:story', kwargs={'pk': story_id})
     
 # to delete story make new template. edit sotry use existing.
 class DeleteStoryView(generic.DeleteView):
