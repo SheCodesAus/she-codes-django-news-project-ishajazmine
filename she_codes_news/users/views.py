@@ -50,6 +50,8 @@ class ProfileView(LoginRequiredMixin, DetailView):
         context['user_stories'] = NewsStory.objects.filter(author=self.kwargs['pk'])
         return context
     
+   
+    
 
 # class UpdateProfileView(generic.UpdateView):
 #     model = CustomUser

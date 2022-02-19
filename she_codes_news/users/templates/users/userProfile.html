@@ -7,18 +7,34 @@
     <p><strong>About Me:</strong>&nbsp{{user.about_me}}</p>
 </div>
 
-<div>
+{% if user.image%}
+            <img src="{{ user.image }}">
+        {% else %}
+            <img src="https://picsum.photos/600">
+    {% endif %}
+
+{% comment %} <div>
     My Stories:
     <ul>
     {% for story in user.newsstory_set.all %}
-        {% comment %} {% if story is not "" %}
-            <p>There are no stories to display.</p>
-            {% comment %} Doesnt print when  there are no stories {% endcomment %}
-        {% comment %} {% else %} {% endcomment %} 
-            <li><a href="{% url 'news:story' story.id %}">{{story.title}}</a></li>
-        {% comment %} {% endif %} {% endcomment %}
+            <li><a href="{% url 'news:story' story.id %}">{{story.title}}</a> 
+            <br/>
+            <a href="{%url 'news:editStory' story.id %}"> Edit </a> 
+            </li> 
     {% endfor %}
     </ul>
+</div> {% endcomment %}
+
+<div>
+    
+    {% for story in user.newsstory_set.all %}
+        <p><a href="{% url 'news:story' story.id %}">{{story.title}}</a></p> 
+        <a href="{%url 'news:editStory' story.id %}"> Edit </a> 
+        {% comment %} {%include "news/storyCard.html" with story=story position=forloop.counter %} {% endcomment %}
+    {% empty %}
+        <p>No stories are available.</p>
+    {% endfor %}
+    
 </div>
 
 

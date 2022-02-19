@@ -7,10 +7,17 @@
 
 <div id="story-wrapper">
     <h2>{{ story.title }}</h2>
-    <h4>{{ story.author }}</h4>
+    <h4>Written by: {{ story.author }}</h4>
+    <h4>Date Submitted: {{story.pub_date}}</h4>
     <div id="story-content">
-        <img src="{% static '/news/images/placeholder-5.jpg' %}">
-        {{ story.content|linebreaks }}
+        {% if story.image%}
+            <img src="{{ story.image }}">
+        {% else %}
+            <img src="https://picsum.photos/600">
+        {% endif %}
+    {{ story.content|linebreaks }}
     </div>
+    <a href="{% url 'news:deleteStory' story.id %}">Delete Story</a>
 </div>
+
 {% endblock %}
