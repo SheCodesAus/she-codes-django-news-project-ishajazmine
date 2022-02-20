@@ -24,36 +24,18 @@
     {% if profile == profile.id %}
         <a href="{% url 'users:updateProfile' user.id %}">Edit Profile</a>
     {% endif %} 
-    {% comment %} <a href="{% url 'users:updateProfile' user.id %}"> Edit Profile</a> {% endcomment %}
 </div>
 
-{% comment %} <div class="circular--landscape">
-{% if user.image%}
-        <img src="{{ user.image }}">
-    {% else %}
-        <img src="https://picsum.photos/600">
-{% endif %}
-</div> {% endcomment %}
-
-{% comment %} <div>
-    My Stories:
-    <ul>
-    {% for story in user.newsstory_set.all %}
-            <li><a href="{% url 'news:story' story.id %}">{{story.title}}</a> 
-            <br/>
-            <a href="{%url 'news:editStory' story.id %}"> Edit </a> 
-            </li> 
-    {% endfor %}
-    </ul>
-</div> {% endcomment %}
 
 <div class="storylist">
     <h4>My Stories:</h4>
     {% for story in user.newsstory_set.all %}
-        <p><a href="{% url 'news:story' story.id %}">{{story.title}}</a></p> 
+        <ul>
+            <a href="{% url 'news:story' story.id %}">{{story.title}}</a></p> 
         <div class="edit_del_container"> 
             <a class="edit_container" href="{%url 'news:editStory' story.id %}"> Edit </a> / <a class="del_container" href="{%url 'news:deleteStory' story.id %}"> Delete </a>
         </div>
+        </ul>
     {% empty %}
         <p>No stories are available.</p>
     {% endfor %}
@@ -62,7 +44,7 @@
 
 
 <div>
-    <a href="{% url 'news:newStory' %}">Write a new Story</a>
+    <a  href="{% url 'news:newStory' %}">Write a new Story</a>
 </div>
 
 </div>

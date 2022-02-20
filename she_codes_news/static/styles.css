@@ -15,7 +15,8 @@ header {
     vertical-align: middle;
     background-color: #ffff;
     padding: 20px;
-    /* border-bottom: 1px solid #000; */
+    border-bottom: 1px solid #000;
+    margin-bottom: 1vh;
 }
 
 /* img {
@@ -44,10 +45,15 @@ h3 {
     font-style: italic;
 }
 
+h4{
+    font-size: 1.1rem;
+    font-family: 'Playfair Display', serif; 
+}
+
 #header-text {
     flex-basis: 80%;
     display: flex;
-    border-bottom: 10px orange groove;
+    /* border-bottom: 10px orange groove; */
     /* border-bottom: 5px groove ; */
 }
 
