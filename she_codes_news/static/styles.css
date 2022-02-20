@@ -47,7 +47,11 @@ h3 {
 #header-text {
     flex-basis: 80%;
     display: flex;
-    border-bottom: 5px groove ;
+    /* border-bottom: 5px groove ; */
+}
+
+.header_container{
+
 }
 
 nav {
@@ -94,6 +98,22 @@ a:hover{
     font-weight:bold;
 }
 
+.storylist a:hover{
+    font-weight:bold;
+    font-size: larger;
+}
+
 a:active{
     background-color: #ffa500;
+}
+
+.edit_del_container{
+    display: inline-block;
+}
+
+.edit_container{
+    color: #8643c4;
+}
+.del_container{
+    color: orange;
 }

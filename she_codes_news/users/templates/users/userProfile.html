@@ -2,20 +2,30 @@
 {% block content %}
 <div id="w">
     <div id="content">
-<h2>Welcome to the profile of {{user.username}} </h2>
-<h3>Your Email: {{user.email}}</h3>
+
+<div>
+    <div class="circular--landscape">
+        {% if user.image%}
+                <img src="{{ user.image }}">
+            {% else %}
+                <img src="https://picsum.photos/600">
+        {% endif %}
+        </div>
+    <h2>Welcome to the profile of <span style="color: orange;">{{user.username}}</span> </h2>
+    {% comment %} <h3>Your Email: {{user.email}}</h3> {% endcomment %}
+</div>
 
 <div>
     <p><strong>About Me:</strong>&nbsp{{user.about_me}}</p>
 </div>
 
-<div class="circular--landscape">
+{% comment %} <div class="circular--landscape">
 {% if user.image%}
         <img src="{{ user.image }}">
     {% else %}
         <img src="https://picsum.photos/600">
 {% endif %}
-</div>
+</div> {% endcomment %}
 
 {% comment %} <div>
     My Stories:
@@ -29,13 +39,13 @@
     </ul>
 </div> {% endcomment %}
 
-<div>
-    
+<div class="storylist">
+    <h4>My Stories:</h4>
     {% for story in user.newsstory_set.all %}
         <p><a href="{% url 'news:story' story.id %}">{{story.title}}</a></p> 
-        <a href="{%url 'news:editStory' story.id %}"> Edit </a> 
-        <a href="{%url 'news:deleteStory' story.id %}"> Delete </a> 
-        {% comment %} {%include "news/storyCard.html" with story=story position=forloop.counter %} {% endcomment %}
+        <div class="edit_del_container"> 
+            <a class="edit_container" href="{%url 'news:editStory' story.id %}"> Edit </a> / <a class="del_container" href="{%url 'news:deleteStory' story.id %}"> Delete </a>
+        </div>
     {% empty %}
         <p>No stories are available.</p>
     {% endfor %}
