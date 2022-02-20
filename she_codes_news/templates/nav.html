@@ -5,7 +5,7 @@
     <a href="#">Login</a>
 </nav> -->
 
-<nav>
+<nav class="nav">
     <a href="{% url 'news:index' %}"><a href="">Newspage Home</a>
     <a href="https://shecodes.com.au/"><span style="color: #8643c4;">She</span><span style="color: orange;">Codes</span> Website</a>
     {% if request.user.is_authenticated %}

@@ -47,15 +47,18 @@ h3 {
 #header-text {
     flex-basis: 80%;
     display: flex;
+    border-bottom: 10px orange groove;
     /* border-bottom: 5px groove ; */
 }
 
 .header_container{
-    border-bottom: orange groove;
+    width:100%;
+    border-top: 10px orange double;
 }
 
 nav {
     flex-basis: 20%;
+    justify-content: left;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -104,8 +107,8 @@ a:hover{
 }
 
 .nav a:active{
-    /* background-color: #ffa500; */
-    background-color: none;
+    background-color: #ffa500;
+    /* background-color: none; */
 }
 
 header a:active{
