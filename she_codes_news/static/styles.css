@@ -51,7 +51,7 @@ h3 {
 }
 
 .header_container{
-
+    border-bottom: orange groove;
 }
 
 nav {
@@ -103,9 +103,15 @@ a:hover{
     font-size: larger;
 }
 
-a:active{
-    background-color: #ffa500;
+.nav a:active{
+    /* background-color: #ffa500; */
+    background-color: none;
 }
+
+header a:active{
+    background-color: none;
+}
+
 
 .edit_del_container{
     display: inline-block;
@@ -118,7 +124,8 @@ a:active{
     color: orange;
 }
 
-.update_warning{
+/* warning for confirming deletion and profile edits */
+/* .update_warning{
     color: rgb(255, 0, 0);
     font-weight:bold;
-}
+} */
