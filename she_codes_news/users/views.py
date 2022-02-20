@@ -72,12 +72,12 @@ class UpdateProfileView(generic.UpdateView):
     def get_object(self, queryset=None):
         return self.request.user
 
-    def get_success_url(self):
-        user_id = self.object.id
-        return reverse('user:profile', kwargs={'pk': user_id})
+    # def get_success_url(self):
+    #     user_id = self.object.id
+    #     return reverse('user:profile', kwargs={'pk': user_id})
 
-    def get_object(self, queryset = None):
-        profile= super().get_object(queryset)
-        if profile != self.request.user:
-            raise PermissionDenied
-        return profile
+    # def get_object(self, queryset = None):
+    #     profile= super().get_object(queryset)
+    #     if profile != self.request.user:
+    #         raise PermissionDenied
+    #     return profile

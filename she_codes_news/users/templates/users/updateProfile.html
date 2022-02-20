@@ -5,6 +5,7 @@
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
+    {% comment %} <input type="submit" value="Confirm"> {% endcomment %}
     <button type="submit">Save my profile changes</button>
     <br/>
     <p class=""> &#9888; Click Wisely - Once you save your changes they cannot be undone!</p>
