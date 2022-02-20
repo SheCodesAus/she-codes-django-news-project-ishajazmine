@@ -82,5 +82,11 @@
 #story-content img {
     float: right;
     margin: 0 0 10px 10px;
-    width: 50%;
+    width: 30%;
+    height: 30%;
+    padding-right: 50px;
+    border-top-left-radius: 50% 50%; 
+    border-top-right-radius: 50% 50%; 
+    border-bottom-right-radius: 50% 50%; 
+    border-bottom-left-radius: 50% 50%;
 }

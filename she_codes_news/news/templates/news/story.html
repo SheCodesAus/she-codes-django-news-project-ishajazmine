@@ -6,8 +6,8 @@
 {% block content %}
 
 <div id="story-wrapper">
-    <h2>{{ story.title }}</h2>
-    <h4>Written by: {{ story.author }}</h4>
+    <h2 class="storycard_heading">{{ story.title }}</h2>
+    <h4>Written by: <a href="{% url 'users:profile' user.id %}">{{ story.author }}</a></h4>
     <h4>Date Submitted: {{story.pub_date}}</h4>
     <div id="story-content">
         {% if story.image%}

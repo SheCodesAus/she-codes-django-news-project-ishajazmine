@@ -46,6 +46,12 @@ class EditStoryView(generic.UpdateView):
     def get_success_url(self):
         story_id = self.object.id
         return reverse('news:story', kwargs={'pk': story_id})
+
+    def get_object(self, queryset = None):
+        story= super().get_object(queryset)
+        if story.author != self.request.user:
+            raise PermissionDenied
+        return story
     
 # to delete story make new template. edit sotry use existing.
 class DeleteStoryView(generic.DeleteView):

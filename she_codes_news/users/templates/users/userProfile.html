@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
+<div id="w">
+    <div id="content">
 <h2>Welcome to the profile of {{user.username}} </h2>
 <h3>Your Email: {{user.email}}</h3>
 
@@ -7,11 +9,13 @@
     <p><strong>About Me:</strong>&nbsp{{user.about_me}}</p>
 </div>
 
+<div class="circular--landscape">
 {% if user.image%}
-            <img src="{{ user.image }}">
-        {% else %}
-            <img src="https://picsum.photos/600">
-    {% endif %}
+        <img src="{{ user.image }}">
+    {% else %}
+        <img src="https://picsum.photos/600">
+{% endif %}
+</div>
 
 {% comment %} <div>
     My Stories:
@@ -43,7 +47,7 @@
     <a href="{% url 'news:newStory' %}">Write a new Story</a>
 </div>
 
-
+</div>
 
 {% endblock %}
 

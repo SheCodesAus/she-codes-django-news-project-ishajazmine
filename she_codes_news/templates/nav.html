@@ -6,10 +6,11 @@
 </nav> -->
 
 <nav>
-    <a href="{% url 'news:index' %}">Home</a>
+    <a href="{% url 'news:index' %}"><a href="">Newspage Home</a>
+    <a href=""><span style="color: #8643c4;">She</span><span style="color: orange;">Codes</span> Website</a>
     {% if request.user.is_authenticated %}
         {% comment %} <a href="{% url 'users:userProfile' %}">{{ user.username }}</a> {% endcomment %}
-        <a href="{% url 'users:profile' request.user.id %}">{{ request.user.username }}</a>
+        <a href="{% url 'users:profile' request.user.id %}">Current User: {{ request.user.username }}</a>
         <a href="{% url 'logout' %}">Logout</a>
     {% else %}
         <a href="{% url 'login' %}">Login</a>

@@ -16,7 +16,10 @@
         <header>
             <div id="header-text">
                 <a id="header-link" href="{% url 'news:index' %}">
-                    <h1>She {Codes} News</h1>
+                    <h1><img style="width:150px; display:inline-block;" src="/static/news/images/Shecodesbymidnight.png" alt="shecodes logo">
+                        <span style="color: #8643c4;">She</span><span style="color: orange;">{Codes}</span> By Midnight</h1>
+                    <h2>A news page where all stories are published at midnight<span style="font-size: 1.5rem; font-style: italic;"> - (totally not because I ran out of time to override the date-time selector)</span></h2>
+                    {% comment %} <h3>(totally not because I couldn't get the time change to work)</h3> {% endcomment %}
                 </a>
             </div>
             <!-- include nav here -->
