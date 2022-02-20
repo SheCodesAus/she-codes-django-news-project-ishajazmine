@@ -8,6 +8,7 @@
 <nav class="nav">
     <a href="{% url 'news:index' %}">Newspage Home</a>
     <a href="https://shecodes.com.au/"><span style="color: #8643c4;">She</span><span style="color: orange;">Codes</span> Website</a>
+    <a href="{% url 'users:createAccount' %}">Create Account</a>
     {% if request.user.is_authenticated %}
         {% comment %} <a href="{% url 'users:userProfile' %}">{{ user.username }}</a> {% endcomment %}
         <a href="{% url 'users:profile' request.user.id %}">Current User: {{ request.user.username }}</a>

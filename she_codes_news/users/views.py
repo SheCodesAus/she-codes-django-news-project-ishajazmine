@@ -60,7 +60,6 @@ class ProfileView(LoginRequiredMixin, DetailView):
         return context
     
    
-    
 
 class UpdateProfileView(generic.UpdateView):
     model = CustomUser
