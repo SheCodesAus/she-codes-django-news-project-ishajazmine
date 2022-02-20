@@ -9,5 +9,5 @@ urlpatterns = [
     # view user profile
     path('<int:pk>/', ProfileView.as_view(), name='profile'),
     # Below: edit user profile
-    # path('')
+    path('<int:pk>/update', views.UpdateProfileView.as_view(), name='updateProfile') 
 ]

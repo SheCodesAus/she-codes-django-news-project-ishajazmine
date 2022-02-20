@@ -19,6 +19,14 @@
     <p><strong>About Me:</strong>&nbsp{{user.about_me}}</p>
 </div>
 
+
+<div>
+    {% if profile == profile.id %}
+        <a href="{% url 'users:updateProfile' user.id %}">Edit Profile</a>
+    {% endif %} 
+    {% comment %} <a href="{% url 'users:updateProfile' user.id %}"> Edit Profile</a> {% endcomment %}
+</div>
+
 {% comment %} <div class="circular--landscape">
 {% if user.image%}
         <img src="{{ user.image }}">

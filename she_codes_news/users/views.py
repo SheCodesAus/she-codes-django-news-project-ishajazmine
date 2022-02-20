@@ -1,13 +1,16 @@
 from cProfile import Profile
-from multiprocessing import context
+# from multiprocessing import context
 from django.shortcuts import render
+
+from django.urls import reverse_lazy, reverse
+from django.core.exceptions import PermissionDenied
 
 # Create your views here.
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
 from django.views import generic
 from .models import CustomUser
-from .forms import CustomUserCreationForm
+from .forms import CustomUserCreationForm, CustomUserChangeForm
 
 # view user profile
 from django.views.generic.detail import DetailView
@@ -17,6 +20,12 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 # importing NewsStory model from news directory
 from news.models import NewsStory
+
+from django.urls import reverse_lazy
+from django.views.generic.edit import CreateView 
+from django.views import generic
+from .models import CustomUser
+from django.core.exceptions import PermissionDenied
 
 class CreateAccountView(CreateView):
     form_class = CustomUserCreationForm
@@ -53,16 +62,22 @@ class ProfileView(LoginRequiredMixin, DetailView):
    
     
 
-# class UpdateProfileView(generic.UpdateView):
-#     model = CustomUser
-#     form_class = CustomUserCreationForm
-#     context_object_name = 'userForm'
-#     template_name = 'users/userUpdate.html'
+class UpdateProfileView(generic.UpdateView):
+    model = CustomUser
+    form_class = CustomUserChangeForm
+    context_object_name = 'userForm'
+    template_name = 'users/updateProfile.html'
+    # fields = ['email', 'about_me', 'image']
 
-#     def get_object(self, queryset=None):
-#         return self.request.user
+    def get_object(self, queryset=None):
+        return self.request.user
 
+    def get_success_url(self):
+        user_id = self.object.id
+        return reverse('user:profile', kwargs={'pk': user_id})
 
-# ^requires user to log in before they can access user profile.
-    
-    
+    def get_object(self, queryset = None):
+        profile= super().get_object(queryset)
+        if profile != self.request.user:
+            raise PermissionDenied
+        return profile

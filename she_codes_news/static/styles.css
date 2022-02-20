@@ -117,3 +117,8 @@ a:active{
 .del_container{
     color: orange;
 }
+
+.update_warning{
+    color: rgb(255, 0, 0);
+    font-weight:bold;
+}
