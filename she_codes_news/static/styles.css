@@ -10,6 +10,7 @@ body {
 header {
     display: flex;
     align-items: center;
+    justify-content: center;
     justify-content: space-between;
     vertical-align: middle;
     background-color: #ffff;
@@ -72,8 +73,6 @@ a, p {
 /* storycard heading */
 .storycard_heading{
     text-transform: uppercase;
-    text-decoration: ;
-    
 }
 
 .circular--landscape {
@@ -91,6 +90,10 @@ a, p {
     object-fit: cover;
 }
 
-a hover{
-    
+a:hover{
+    font-weight:bold;
+}
+
+a:active{
+    background-color: #ffa500;
 }
