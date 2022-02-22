@@ -1,6 +1,20 @@
-<nav>
+<!-- <nav>
     <a href="{% url 'news:index' %}">Home</a>
     <a href="#">username</a>
     <a href="#">Logout</a>
     <a href="#">Login</a>
+</nav> -->
+
+<nav class="nav">
+    <a href="{% url 'news:index' %}">Newspage Home</a><br/>
+    <a href="https://shecodes.com.au/"><span style="color: #8643c4;">She</span><span style="color: orange;">Codes</span> Website</a><br/>
+    {% if request.user.is_authenticated %}
+        {% comment %} <a href="{% url 'users:userProfile' %}">{{ user.username }}</a> {% endcomment %}
+        <a href="{% url 'users:profile' request.user.id %}">Current User: {{ request.user.username }}</a><br/>
+        <a href="{% url 'logout' %}">Logout</a>
+    {% else %}
+        <a href="{% url 'login' %}">Login</a>
+    {% endif %}
+    <br/>
+    <a href="{% url 'users:createAccount' %}">Create Account</a>
 </nav>

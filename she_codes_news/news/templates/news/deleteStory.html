@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<form action="" method="post">
+    {% csrf_token %}
+    <p class="update_warning"> &#9888; Are you sure you want to delete "{{ object }}"? 
+        <br/>Deleted stories cannot be recovered.</p>
+    {{ form.as_p }}
+    <input type="submit" value="Confirm">
+</form>
+{% endblock %}

@@ -1,8 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{% static 'news/styles.css' %}">
+{% endblock %}
+{% block content %}
+
 <div id="story-wrapper">
-    <h2>{{ story.title }}</h2>
-    <h4>{{ story.author }}</h4>
+    <h2 class="storycard_heading">{{ story.title }}</h2>
+    <h4><a href="{% url 'users:profile' pk=story.author.id %}">Written by: {{ story.author }}</a></h4>
+    <h4>Date Submitted: {{story.pub_date}}</h4>
     <div id="story-content">
-        <img src="{% static '/news/images/placeholder-5.jpg' %}">
-        {{ story.content|linebreaks }}
+        {% if story.image%}
+            <img src="{{ story.image }}">
+        {% else %}
+            <img src="https://picsum.photos/600">
+        {% endif %}
+    {{ story.content|linebreaks }}
     </div>
+    <a href="{% url 'news:deleteStory' story.id %}">Delete Story</a>
 </div>
+
+{% endblock %}
